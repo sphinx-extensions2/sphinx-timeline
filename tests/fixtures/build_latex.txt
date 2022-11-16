@@ -1,0 +1,118 @@
+horizontal
+.
+.. subfigure:: AB
+
+   .. image:: image.png
+      :alt: hallo1
+
+   .. image:: image.png
+      :alt: hallo2
+.
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\end{figure}
+.
+
+vertical
+.
+.. subfigure:: A|B
+
+   .. image:: image.png
+      :alt: hallo1
+
+   .. image:: image.png
+      :alt: hallo2
+.
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.99\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+
+\begin{subfigure}{0.99\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\end{figure}
+.
+
+span columns
+.
+.. subfigure:: AA|BC
+
+   .. image:: image.png
+      :alt: hallo1
+
+   .. image:: image.png
+      :alt: hallo2
+
+   .. image:: image.png
+      :alt: hallo3
+.
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.99\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\end{figure}
+.
+
+empty area
+.
+.. subfigure:: AB|.C
+
+   .. image:: image.png
+      :alt: hallo1
+
+   .. image:: image.png
+      :alt: hallo2
+
+   .. image:: image.png
+      :alt: hallo3
+.
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+
+\begin{subfigure}{0.495\textwidth}
+\centering
+
+\noindent\sphinxincludegraphics{{image}.png}
+\end{subfigure}
+\end{figure}
+.

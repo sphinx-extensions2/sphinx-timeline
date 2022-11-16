@@ -1,0 +1,18 @@
+simple
+.
+.. subfigure:: AB
+
+   .. image:: image.png
+      :alt: hallo
+
+   .. image:: image.png
+      :alt: hallo
+.
+<document source="<src>/index.rst" subfig_layouts="{'default': {'ss-layout-default-AB': [['A', 'B']]}}">
+    <figure area_classes="" classes="sphinx-subfigure" grid_classes="" is_subfigure="True" layout="{'default': [['A', 'B']]}">
+        <SubfigureGridHtml classes="sphinx-subfigure-grid ss-layout-default-AB">
+            <SubfigureGridItemHtml area="A" classes="sphinx-subfigure-area">
+                <image alt="hallo" candidates="{'*': 'image.png'}" subfigure_area="A" uri="image.png">
+            <SubfigureGridItemHtml area="B" classes="sphinx-subfigure-area">
+                <image alt="hallo" candidates="{'*': 'image.png'}" subfigure_area="B" uri="image.png">
+.
