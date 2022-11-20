@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "sphinx_subfigure"
+name = "sphinx_timeline"
 dynamic = ["version", "description"]
 authors = [{name = "Chris Sewell", email = "chrisj_sewell@hotmail.com"}]
 readme = "README.md"
@@ -16,9 +16,16 @@ classifiers = [
     "Topic :: Text Processing :: Markup",
     "Framework :: Sphinx :: Extension",
 ]
-keywords = ["sphinx", "subfigure"]
-requires-python = ">=3.7"
-dependencies = ["sphinx"]
+keywords = ["sphinx", "timeline"]
+requires-python = ">=3.8"
+dependencies = [
+    "sphinx",
+    "jinja2",
+    "pyyaml",
+    "backports.zoneinfo;python_version<'3.9'",
+    "tzdata",
+    "python-dateutil"
+]
 
 [project."optional-dependencies"]
 testing = [
@@ -29,13 +36,13 @@ testing = [
     "sphinx-pytest>=0.0.4",
     "beautifulsoup4",
 ]
-docs = [
-    "myst-parser",
-    "furo"
-]
+docs = ["myst-parser"]
+furo = ["furo"]
+pst = ["pydata-sphinx-theme"]
+rtd = ["sphinx-rtd-theme"]
 
 [project.urls]
-Homepage = "https://github.com/chrisjsewell/sphinx-subfigure"
+Homepage = "https://github.com/chrisjsewell/sphinx-timeline"
 
 [tool.isort]
 profile = "black"

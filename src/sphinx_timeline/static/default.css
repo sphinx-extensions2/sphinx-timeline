@@ -1,0 +1,112 @@
+:root {
+    --tl-height: 300px;
+    --tl-item-outline-color: black;
+    --tl-item-outline-width: 1px;
+    --tl-item-border-radius: 10px;
+    --tl-item-padding: 15px;
+    --tl-item-width: 280px;
+    --tl-item-gap-x: 8px;
+    --tl-item-gap-y: 16px;
+    --tl-item-tail-height: 10px;
+    --tl-item-tail-color: #383838;
+    --tl-item-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    --tl-line-color: #686868;
+    --tl-line-width: 3px;
+    --tl-dot-color: black;
+    --tl-dot-diameter: 12px;
+}
+
+ol.timeline-default {
+    /** this stops the items from overlapping each other **/
+    white-space: nowrap;
+    padding-top: calc(var(--tl-height) / 2);
+    padding-bottom: calc(var(--tl-height) / 2);
+    padding-left: 1.2rem;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    scroll-padding-left: 0.5em;
+}
+
+/** timeline line **/
+ol.timeline-default>li.timeline {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    width: calc(var(--tl-item-gap-x) + var(--tl-item-width) / 2);
+    max-width: 90vw;
+    height: var(--tl-line-width);
+    margin-left: 0;
+    background: var(--tl-line-color);
+    scroll-snap-align: start;
+}
+
+ol.timeline-default>li.timeline:last-child {
+    background: linear-gradient(to right,
+            var(--tl-line-color) 60%,
+            rgba(1, 1, 1, 0));
+}
+
+/** timeline dot **/
+ol.timeline-default>li.timeline::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    width: var(--tl-dot-diameter);
+    height: var(--tl-dot-diameter);
+    transform: translateY(-50%) translateX(-0.5em);
+    border-radius: 50%;
+    background: var(--tl-dot-color);
+}
+
+/** timeline item (all) **/
+ol.timeline-default>li.timeline>div.tl-item {
+    position: absolute;
+    width: var(--tl-item-width);
+    padding: 0;
+    border-radius: var(--tl-item-border-radius);
+    white-space: normal;
+    outline: var(--tl-item-outline-width) solid var(--tl-item-outline-color);
+    box-shadow: var(--tl-item-shadow);
+}
+
+ol.timeline-default>li.timeline>div.tl-item>div.tl-item-content {
+    padding: var(--tl-item-padding);
+    max-height: calc((var(--tl-height) / 2) - var(--tl-item-gap-y) - 26px);
+    overflow-y: scroll;
+}
+
+/** timeline item (top) **/
+ol.timeline-default>li.timeline:nth-child(odd)>div.tl-item {
+    top: calc(-1 * var(--tl-item-gap-y));
+    transform: translateY(-100%);
+}
+
+/** timeline item (bottom) **/
+ol.timeline-default>li.timeline:nth-child(even)>div.tl-item {
+    top: calc(100% + var(--tl-item-gap-y));
+}
+
+/** timeline item tail (all) **/
+ol.timeline-default>li.timeline>div.tl-item::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+/** timeline item tail (top) **/
+ol.timeline-default>li.timeline:nth-child(odd)>div.tl-item::before {
+    top: 100%;
+    border-width: var(--tl-item-tail-height) 8px 0 0;
+    border-color: var(--tl-item-tail-color) transparent transparent transparent;
+}
+
+/** timeline item tail (bottom) **/
+ol.timeline-default>li.timeline:nth-child(even)>div.tl-item::before {
+    top: calc(-1 * var(--tl-item-tail-height));
+    border-width: var(--tl-item-tail-height) 0 0 8px;
+    border-color: transparent transparent transparent var(--tl-item-tail-color);
+}

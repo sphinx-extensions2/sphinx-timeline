@@ -1,4 +1,16 @@
-.sphinx-subfigure .outline .sphinx-subfigure-area,
-.sphinx-subfigure .outline .sphinx-subfigure-area img {
-    border: 1px solid grey;
+/** furo and pydata-sphinx-theme **/
+body[data-theme="dark"] {
+    --tl-dot-color: #9a9a9a;
+    --tl-item-outline-color: #383838;
+    --tl-item-tail-color: #747474;
+    --tl-item-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2), 0 6px 10px 0 rgba(100, 100, 100, 0.19);
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+        --tl-dot-color: #9a9a9a;
+        --tl-item-outline-color: #383838;
+        --tl-item-tail-color: #747474;
+        --tl-item-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2), 0 6px 10px 0 rgba(100, 100, 100, 0.19);
+    }
 }

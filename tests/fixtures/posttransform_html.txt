@@ -1,18 +1,142 @@
-simple
+basic
 .
-.. subfigure:: AB
+.. timeline::
 
-   .. image:: image.png
-      :alt: hallo
-
-   .. image:: image.png
-      :alt: hallo
+   - start: 2021-02-03
+     name: 2nd draft
+   - start: 2022-02-03 02:00 (europe/zurich)
+     name: 3rd draft
+   - start: "2020-02-03 05:00"
+     name: 1st draft
+   ---
+   {{dtrange}} - {{e.name}}
 .
-<document source="<src>/index.rst" subfig_layouts="{'default': {'ss-layout-default-AB': [['A', 'B']]}}">
-    <figure area_classes="" classes="sphinx-subfigure" grid_classes="" is_subfigure="True" layout="{'default': [['A', 'B']]}">
-        <SubfigureGridHtml classes="sphinx-subfigure-grid ss-layout-default-AB">
-            <SubfigureGridItemHtml area="A" classes="sphinx-subfigure-area">
-                <image alt="hallo" candidates="{'*': 'image.png'}" subfigure_area="A" uri="image.png">
-            <SubfigureGridItemHtml area="B" classes="sphinx-subfigure-area">
-                <image alt="hallo" candidates="{'*': 'image.png'}" subfigure_area="B" uri="image.png">
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Thu 3rd Feb 2022, 02:00 AM (CET) - 3rd draft
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb 2021 - 2nd draft
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Mon 3rd Feb 2020, 05:00 AM (UTC) - 1st draft
+.
+
+json
+.
+.. timeline::
+   :events-format: json
+
+   [{"start": "2021-02-03", "name": "2nd draft"}]
+   ---
+   {{dtrange}} - {{e.name}}
+.
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb 2021 - 2nd draft
+.
+
+csv
+.
+.. timeline::
+   :events-format: csv
+
+   start,name
+   2021-02-03,2nd draft
+   ---
+   {{dtrange}} - {{e.name}}
+.
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb 2021 - 2nd draft
+.
+
+external-data-yaml
+.
+.. timeline::
+   :events: data.yaml
+
+   {{dtrange}} - {{e.name}}
+.
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb 2021 - 1st draft
+.
+
+external-data-json
+.
+.. timeline::
+   :events: data.json
+   :events-format: json
+
+   {{dtrange}} - {{e.name}}
+.
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb 2021 - 1st draft
+.
+
+external-template
+.
+.. timeline::
+   :events: data.yaml
+   :template: template.txt
+.
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb 2021 - 1st draft
+.
+
+duration
+.
+.. timeline::
+   - start: 2021-02-03 13:00:00
+     duration: 1day 2hour 30min
+   ---
+   {{dtrange}}:
+   {{duration}}
+.
+<document source="<src>/index.rst">
+    <TimelineDiv>
+        <enumerated_list classes="timeline-default">
+            <list_item classes="timeline">
+                <TimelineDiv classes="tl-item">
+                    <TimelineDiv classes="tl-item-content">
+                        <paragraph>
+                            Wed 3rd Feb, 12:00 AM - Thu 4th Feb 2021, 02:30 AM (UTC):
+                            1 day 2 hours 30 minutes
 .
