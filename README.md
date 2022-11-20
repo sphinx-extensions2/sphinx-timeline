@@ -11,8 +11,6 @@ then add `sphinx_timeline` to your `conf.py` file's `extensions` variable:
 
 ```python
 extensions = ["sphinx_timeline"]
-
-numfig = True  # optional
 ```
 
 Now add a `timeline` directive to your document:
@@ -26,7 +24,8 @@ Now add a `timeline` directive to your document:
    - start: 2000-02-03
      name: 3rd event
    ---
-   **{{e.start|fdtime}}**:
+   **{{dtrange}}**
+
    *{{e.name}}*
 
    Description ...
