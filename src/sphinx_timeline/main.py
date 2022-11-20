@@ -25,7 +25,8 @@ def setup(app: Sphinx) -> None:
     """Setup the extension."""
     from sphinx_timeline import __version__
 
-    app.connect("builder-inited", add_css)
+    app.connect("builder-inited", add_html_assets)
+    app.connect("html-page-context", load_html_assets)
     app.add_directive("timeline", TimelineDirective)
     app.add_node(
         TimelineDiv,
@@ -43,23 +44,47 @@ def setup(app: Sphinx) -> None:
     }
 
 
-def add_css(app: Sphinx):
-    """Copy the CSS to the build directory."""
+def add_html_assets(app: Sphinx) -> None:
+    """Add the HTML assets to the build directory."""
+    if (not app.builder) or app.builder.format != "html":
+        return
     # setup up new static path in output dir
     static_path = (Path(app.outdir) / "_sphinx_timeline_static").absolute()
     static_path.mkdir(exist_ok=True)
-    app.config.html_static_path.append(str(static_path))
-    # Read the css content and hash it
-    content = resources.read_text(static_module, "default.css")
-    hash = hashlib.md5(content.encode("utf8")).hexdigest()
-    # Write the css file
-    css_path = static_path / f"tl_default.{hash}.css"
-    app.add_css_file(css_path.name)
-    if css_path.exists():
-        return
-    for path in static_path.glob("*.css"):
+    for path in static_path.glob("**/*"):
         path.unlink()
-    css_path.write_text(content, encoding="utf8")
+    app.config.html_static_path.append(str(static_path))
+    for resource in resources.contents(static_module):
+        if not resource.endswith(".css") and not resource.endswith(".js"):
+            continue
+        # Read the content and hash it
+        content = resources.read_text(static_module, resource)
+        hash = hashlib.md5(content.encode("utf8")).hexdigest()
+        # Write the file
+        name, ext = resource.split(".", maxsplit=1)
+        write_path = static_path / f"{name}.{hash}.{ext}"
+        write_path.write_text(content, encoding="utf8")
+
+
+def load_html_assets(app: Sphinx, pagename: str, *args, **kwargs) -> None:
+    """Ensure the HTML assets are loaded in the page, if necessary."""
+    if (not app.builder) or app.builder.format != "html":
+        return
+    if (not app.env) or not app.env.metadata.get(pagename, {}).get("timeline", False):
+        return
+    for resource in resources.contents(static_module):
+        if not resource.endswith(".css") and not resource.endswith(".js"):
+            continue
+        # Read the content and hash it
+        content = resources.read_text(static_module, resource)
+        hash = hashlib.md5(content.encode("utf8")).hexdigest()
+        # add the file to the context
+        name, ext = resource.split(".", maxsplit=1)
+        write_name = f"{name}.{hash}.{ext}"
+        if ext == "css":
+            app.add_css_file(write_name)
+        if ext == "js":
+            app.add_js_file(write_name)
 
 
 class TimelineDiv(nodes.General, nodes.Element):
@@ -250,6 +275,8 @@ class TimelineDirective(SphinxDirective):
                 item_content,
             )
             item_node.append(item_container)
+
+        self.env.metadata[self.env.docname]["timeline"] = True
 
         return [container]
 

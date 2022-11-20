@@ -1,3 +1,8 @@
+/** highlight future events **/
+ol.timeline-default>li.timeline>div.tl-item.dt-future {
+    outline-color: green;
+}
+
 /** furo and pydata-sphinx-theme **/
 body[data-theme="dark"] {
     --tl-dot-color: #9a9a9a;

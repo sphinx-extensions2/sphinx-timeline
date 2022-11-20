@@ -17,7 +17,7 @@ A scrolling horizontal timeline is created for HTML output, and other formats de
   name: 4th event
 - start: 2020-02-04
   name: 5th event
-- start: 2021-02-04
+- start: 2030-02-04
   name: 6th event
 ---
 **{{dtrange}}**
@@ -161,7 +161,9 @@ class
 class-item
 : Classes to add to each item.
 
-## CSS Variables
+## Customise HTML output
+
+### CSS Variables
 
 The following CSS variables can be used to customize the appearance of the timeline:
 
@@ -209,5 +211,26 @@ body[data-theme="dark"] {
         --tl-item-tail-color: #747474;
         --tl-item-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.2), 0 6px 10px 0 rgba(100, 100, 100, 0.19);
     }
+}
+```
+
+### Data attributes
+
+On the containing div for each event, the `data-dt` data attribute is added, which contains the event's `start` data/time in ISO format.
+JavaScript (if enabled) will also run, to add `dt-future` or `dt-past` class to each div, depending on whether the event is in the future or past.
+This means that you can use CSS selectors to style events based on their date/time.
+
+For example, to highlight future events, you can add the following to your `conf.py`:
+
+```python
+html_static_path = ["_static"]
+html_css_files = ["custom.css"]
+```
+
+Then add to the CSS `_static/custom.css`:
+
+```css
+ol.timeline-default>li.timeline>div.tl-item.dt-future {
+    outline-color: green;
 }
 ```
