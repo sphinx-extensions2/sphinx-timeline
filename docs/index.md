@@ -75,9 +75,11 @@ For example, to use external files:
 
 ```restructuredtext
 .. timeline::
-   :events: events.yaml
-   :template: template.txt
+   :events: /path/to/events.yaml
+   :template: /path/to/template.txt
 ```
+
+If a path starts with `/`, then it is relative to the Sphinx source directory, otherwise it is relative to the current document.
 
 ## Jinja templates
 
@@ -129,12 +131,14 @@ The event dictionary is available as the `e` variable, and the following additio
 
 events
 : Path to the timeline data file, otherwise the data is read from the content.
+  If the path starts with `/`, then it is relative to the Sphinx source directory, otherwise it is relative to the current document.
 
 events-format
 : The format of the events. Can be `json`, `yaml`, or `csv`. Defaults to `yaml`.
 
 template
 : Path to the template file, otherwise the template is read from the content.
+  If the path starts with `/`, then it is relative to the Sphinx source directory, otherwise it is relative to the current document.
 
 max-items
 : The maximum number of items to show. Defaults to all.
