@@ -4,7 +4,7 @@ basic
 
    - start: 2021-02-03
      name: 2nd draft
-   - start: 2022-02-03 02:00 (europe/zurich)
+   - start: 2022-02-03 02:00 (Europe/Zurich)
      name: 3rd draft
    - start: "2020-02-03 05:00"
      name: 1st draft

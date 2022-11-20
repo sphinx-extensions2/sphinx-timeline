@@ -61,7 +61,7 @@ A timeline contains two critical pieces:
 
 1. A list of events (in the form of a YAML list, JSON list, or CSV).
 
-   - Each event must have at least `start` key, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date(time) format, which can also have a suffix [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in parenthesise, e.g. `2020-02-03 12:34:56 (europe/zurich)`.
+   - Each event must have at least `start` key, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date(time) format, which can also have a suffix [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in parenthesise, e.g. `2020-02-03 12:34:56 (Europe/Zurich)`.
    - Each event can have an optional `duration` key, to specify the delta from the `start`.
      This is in the format e.g. `30 minutes 4 hours 1 day 2 months 3 years`.
      All units are optional and can be in any order, e.g. `4 hours 30 minutes` is the same as `30 minutes 4 hours 0 day 0 months 0 years`.
@@ -110,7 +110,7 @@ The event dictionary is available as the `e` variable, and the following additio
   :style: none
 
   - start: 2022-02-03 22:00
-  - start: 2021-02-03 22:00 (europe/zurich)
+  - start: 2021-02-03 22:00 (Europe/Zurich)
     duration: 1 hour 30 minutes
   - start: 2020-02-03
     duration: 1 day
