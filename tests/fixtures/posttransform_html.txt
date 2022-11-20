@@ -15,17 +15,17 @@ basic
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2022-02-03T02:00:00+01:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Thu 3rd Feb 2022, 02:00 AM (CET) - 3rd draft
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb 2021 - 2nd draft
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2020-02-03T05:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Mon 3rd Feb 2020, 05:00 AM (UTC) - 1st draft
@@ -44,7 +44,7 @@ json
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb 2021 - 2nd draft
@@ -64,7 +64,7 @@ csv
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb 2021 - 2nd draft
@@ -81,7 +81,7 @@ external-data-yaml
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb 2021 - 1st draft
@@ -99,7 +99,7 @@ external-data-json
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb 2021 - 1st draft
@@ -115,7 +115,7 @@ external-template
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb 2021 - 1st draft
@@ -134,7 +134,7 @@ duration
     <TimelineDiv>
         <enumerated_list classes="timeline-default">
             <list_item classes="timeline">
-                <TimelineDiv classes="tl-item">
+                <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
                             Wed 3rd Feb, 12:00 AM - Thu 4th Feb 2021, 02:30 AM (UTC):

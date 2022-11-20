@@ -82,6 +82,8 @@ def visit_tl_div(self, node: nodes.Node):
         attrs["style"] = ";".join(
             (f"{key}: {val}" for key, val in node["styles"].items())
         )
+    if node.get("dt"):
+        attrs["data-dt"] = str(node["dt"])
     self.body.append(self.starttag(node, "div", CLASS="docutils", **attrs))
 
 
@@ -236,7 +238,9 @@ class TimelineDirective(SphinxDirective):
             )
             self.set_source_info(item_node)
             list_node.append(item_node)
-            item_container = TimelineDiv(classes=["tl-item"])
+            item_container = TimelineDiv(
+                classes=["tl-item"], dt=item["start"].isoformat()
+            )
             item_content = TimelineDiv(classes=["tl-item-content"])
             item_container.append(item_content)
             # item_container.append(nodes.Text(rendered))
