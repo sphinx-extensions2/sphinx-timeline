@@ -26,8 +26,8 @@ def to_datetime(value: str | date | datetime, default_tz=timezone.utc) -> dateti
             final = datetime.fromisoformat(tz_match.group("dt").strip())
             try:
                 tz = zoneinfo.ZoneInfo(tz_match.group("tz"))
-            except Exception:
-                raise ValueError(f"Invalid timezone: {tz_match.group('tz')!r}")
+            except Exception as exc:
+                raise ValueError(f"Invalid timezone: {tz_match.group('tz')!r}: {exc}")
             final = final.replace(tzinfo=tz)
         else:
             # parse datetime without timezone
