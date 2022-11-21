@@ -122,9 +122,10 @@ def fmt_daterange(
     if not short_date and start.year == end.year:
         start_fmt = start_fmt.replace(" %Y", "")
         if start.month == end.month:
-            start_fmt = start_fmt.replace(f"{month_code}", "")
+            start_fmt = start_fmt.replace(f"{month_code.rstrip()}", "")
+            start_fmt = start_fmt.replace(" ,", ",")
 
-    return f"{fmt_datetime(start, start_fmt)} - {fmt_datetime(end, end_fmt)}"
+    return f"{fmt_datetime(start, start_fmt).rstrip()} - {fmt_datetime(end, end_fmt)}"
 
 
 def _ord_suffix(n: int):
