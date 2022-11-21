@@ -137,6 +137,6 @@ duration
                 <TimelineDiv classes="tl-item" dt="2021-02-03T00:00:00+00:00">
                     <TimelineDiv classes="tl-item-content">
                         <paragraph>
-                            Wed 3rd Feb, 12:00 AM - Thu 4th Feb 2021, 02:30 AM (UTC):
+                            Wed 3rd, 12:00 AM - Thu 4th Feb 2021, 02:30 AM (UTC):
                             1 Day 2 Hours 30 Minutes
 .
