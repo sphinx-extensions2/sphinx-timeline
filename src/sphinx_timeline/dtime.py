@@ -1,4 +1,5 @@
 """Utilities for parsing and formatting dates and times."""
+
 from __future__ import annotations
 
 from datetime import date, datetime, time, timezone
